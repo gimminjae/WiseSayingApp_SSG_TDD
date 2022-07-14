@@ -6,32 +6,8 @@ import java.io.ByteArrayOutputStream;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AppTest {
-    @Test
-    public void 등록시_명언과_작가를_입력받는지() {
-        String rs = AppTestRunner.run("""
-                등록
-                나의 죽음을 적에게 알리지 마라
-                이순신
-                종료
-                """);
-
-        assertTrue(rs.contains("명언 : "));
-        assertTrue(rs.contains("작가 : "));
-    }
-    @Test
-    public void 프로그램_시작시_타이틀출력_그리고_종료() {
-        String rs = AppTestRunner.run("""
-                종료
-                """);
-    }
-    @Test
-    public void 테스트() {
-        assertTrue(1 == 1);
-        assertEquals(1, 1);
-    }
+public class IoTest {
     @Test
     public void 스캐너에_키보드가_아닌_문자열을_입력으로_설정() {
         Scanner sc = TestUtil.genScanner("안녕");
