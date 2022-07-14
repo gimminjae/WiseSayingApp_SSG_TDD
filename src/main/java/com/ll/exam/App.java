@@ -18,14 +18,14 @@ public class App {
 
         loop:
         while(true) {
-            System.out.println("명령) ");
+            System.out.print("명령) ");
             String cmd = sc.nextLine();
 
             switch(cmd) {
                 case "등록":
-                    System.out.println("명언 : ");
+                    System.out.print("명언 : ");
                     String content = sc.nextLine();
-                    System.out.println("작가 : ");
+                    System.out.print("작가 : ");
                     String author = sc.nextLine();
                     ++number;
                     list.add(new WiseSaying(number, content, author));
@@ -38,6 +38,7 @@ public class App {
                         WiseSaying ws = list.get(i);
                         System.out.printf("%d / %s / %s\n", ws.getId(), ws.getAuthor(), ws.getContent());
                     }
+                    break;
                 case "종료":
                     break loop;
 
