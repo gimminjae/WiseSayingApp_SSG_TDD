@@ -16,6 +16,11 @@ public class App {
             String cmd = sc.nextLine();
 
             switch(cmd) {
+                case "등록":
+                    System.out.println("명언 : ");
+                    String content = sc.nextLine();
+                    System.out.println("작가 : ");
+                    String author = sc.nextLine();
                 case "종료":
                     break loop;
 
