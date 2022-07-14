@@ -4,8 +4,10 @@ import java.util.Scanner;
 
 public class App {
     private Scanner sc;
+    private int number;
     public App(Scanner sc) {
         this.sc = sc;
+        number = 0;
     }
     public void run() {
         System.out.println("== 명언 SSG ==");
@@ -21,7 +23,8 @@ public class App {
                     String content = sc.nextLine();
                     System.out.println("작가 : ");
                     String author = sc.nextLine();
-                    System.out.println("1번 명언이 등록되었습니다.");
+                    ++number;
+                    System.out.printf("%d번 명언이 등록되었습니다.\n", number);
                     break;
                 case "종료":
                     break loop;

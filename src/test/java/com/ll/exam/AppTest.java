@@ -10,6 +10,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AppTest {
     @Test
+    public void 명언_여러개_등록시_명언번호가_증가하는지() {
+        String rs = AppTestRunner.run("""
+                등록
+                현재를 사랑하라
+                작자미상
+                등록
+                과거를 사랑하라
+                작자 알 수 없음
+                종료
+                """);
+        assertTrue(rs.contains("1번 명언이 등록되었습니다."));
+        assertTrue(rs.contains("2번 명언이 등록되었습니다."));
+
+    }
+    @Test
     public void 등록시_등록번호와_함께_등록완료문자_출력() {
         String rs = AppTestRunner.run("""
                 등록
