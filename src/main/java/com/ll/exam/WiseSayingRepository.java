@@ -10,7 +10,7 @@ public class WiseSayingRepository {
         number = 0;
         list = new LinkedList<>();
     }
-    public WiseSaying write(String content, String author) {
+    public WiseSaying add(String content, String author) {
         ++number;
 
         WiseSaying ws = new WiseSaying(number, content, author);
@@ -18,18 +18,14 @@ public class WiseSayingRepository {
         return ws;
     }
 
-    public void readAll() {
-        for(int i = list.size() - 1; i >= 0; i--) {
-            WiseSaying ws = list.get(i);
-            System.out.printf("%d / %s / %s\n", ws.getId(), ws.getAuthor(), ws.getContent());
-        }
+    public List<WiseSaying> readAll() {
+        return list;
     }
 
     public void delete(int idNum) {
         for(int i = 0; i < list.size(); i++) {
             if(list.get(i).getId() == idNum) {
                 list.remove(i);
-                System.out.println(idNum + "번 명언이 삭제되었습니다.");
                 return;
             }
         }
@@ -43,7 +39,7 @@ public class WiseSayingRepository {
         return null;
     }
 
-    public void update(int idNum, String newContent, String newAuthor) {
+    public void modify(int idNum, String newContent, String newAuthor) {
         WiseSaying ws = findById(idNum);
         ws.setContent(newContent);
         ws.setAuthor(newAuthor);

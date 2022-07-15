@@ -1,5 +1,6 @@
 package com.ll.exam;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class WiseSayingController {
@@ -23,7 +24,11 @@ public class WiseSayingController {
     public void read(Rq rq) {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("=====================");
-        wsService.readAll();
+        List<WiseSaying> list = wsService.readlist();
+        for(WiseSaying ws : list) {
+            System.out.printf("%d / %s / %s\n", ws.getId(), ws.getAuthor(), ws.getContent());
+        }
+
     }
 
     public void delete(Rq rq) {
@@ -33,6 +38,7 @@ public class WiseSayingController {
             return;
         }
         wsService.delete(idNum);
+        System.out.println(idNum + "번 명언이 삭제되었습니다.");
     }
 
     public void update(Rq rq) {

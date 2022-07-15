@@ -12,11 +12,11 @@ public class WiseSayingService {
     }
 
     public WiseSaying write(String content, String author) {
-        return wsRepository.write(content, author);
+        return wsRepository.add(content, author);
     }
 
-    public void readAll() {
-        wsRepository.readAll();
+    public List<WiseSaying> readlist() {
+        return wsRepository.readAll();
     }
 
     public void delete(int idNum) {
@@ -24,7 +24,7 @@ public class WiseSayingService {
     }
 
     public void update(int idNum, String newContent, String newAuthor) {
-        wsRepository.update(idNum, newContent, newAuthor);
+        wsRepository.modify(idNum, newContent, newAuthor);
     }
 
     public WiseSaying findById(int idNum) {
