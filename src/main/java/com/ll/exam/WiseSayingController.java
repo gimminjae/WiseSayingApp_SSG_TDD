@@ -52,4 +52,14 @@ public class WiseSayingController {
         }
         System.out.println(idNum + "번 명언은 존재하지 않습니다.");
     }
+
+    public void update(Rq rq) {
+        System.out.println("명언(기존) : 현재를 사랑하라");
+        System.out.print("명언 : ");
+        String newContent = sc.nextLine();
+        System.out.println("작가(기존) : 작자미상");
+        System.out.print("작가 : ");
+        String newAuthor = sc.nextLine();
+
+    }
 }

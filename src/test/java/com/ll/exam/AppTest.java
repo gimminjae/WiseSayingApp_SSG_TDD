@@ -8,6 +8,22 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
+    @Test
+    public void 수정명령어_입력시_기존것을_출력하고_새로_입력을_받는지() {
+        String rs = AppTestRunner.run("""
+                등록
+                현재를 사랑하라
+                작자미상
+                수정?id=1
+                과거를 사랑하라
+                홍길동
+                종료
+                """);
+        assertTrue(rs.contains("명언(기존) : 현재를 사랑하라"));
+        assertTrue(rs.contains("명언 : "));
+        assertTrue(rs.contains("작가(기존) : "));
+        assertTrue(rs.contains("작가 : "));
+    }
 
     @Test
     public void 삭제기능_모든_예외처리() {

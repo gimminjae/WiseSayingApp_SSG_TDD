@@ -31,6 +31,8 @@ public class App {
                 case "삭제":
                     ws.delete(rq);
                     break;
+                case "수정":
+                    ws.update(rq);
                 case "종료":
                     break loop;
 
