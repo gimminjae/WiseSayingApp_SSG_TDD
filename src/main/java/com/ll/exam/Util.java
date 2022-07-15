@@ -71,7 +71,6 @@ public class Util {
                         .map(Path::toFile)
                         .forEach(File::delete);
             } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
 
@@ -101,5 +100,17 @@ public class Util {
                 throw new RuntimeException(e);
             }
         }
+        public static List<String> getFileNamesFromDir(String path) {
+            try (Stream<Path> stream = Files.walk(Paths.get(path), 1)) {
+                return stream
+                        .filter(file -> !Files.isDirectory(file))
+                        .map(Path::getFileName)
+                        .map(Path::toString)
+                        .collect(Collectors.toList());
+            } catch (IOException e) {
+                return new ArrayList<>();
+            }
+        }
+
     }
 }
