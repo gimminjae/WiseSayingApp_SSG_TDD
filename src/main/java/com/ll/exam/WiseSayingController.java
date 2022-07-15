@@ -8,7 +8,6 @@ public class WiseSayingController {
     private List<WiseSaying> list;
     private Scanner sc;
     private int number;
-    private Rq rq;
     public WiseSayingController(Scanner sc) {
         this.sc = sc;
         number = 0;

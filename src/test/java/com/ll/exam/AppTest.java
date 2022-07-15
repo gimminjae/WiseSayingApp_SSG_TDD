@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AppTest {
+public class AppTest { //아래에서 위로 진행함
     @Test
     public void 수정기능_예외처리_테스트() {
         String rs = AppTestRunner.run("""
