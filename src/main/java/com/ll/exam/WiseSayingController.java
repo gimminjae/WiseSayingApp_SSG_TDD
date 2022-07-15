@@ -25,7 +25,8 @@ public class WiseSayingController {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("=====================");
         List<WiseSaying> list = wsService.readlist();
-        for(WiseSaying ws : list) {
+        for(int i = list.size() - 1; i >= 0; i--) {
+            WiseSaying ws = list.get(i);
             System.out.printf("%d / %s / %s\n", ws.getId(), ws.getAuthor(), ws.getContent());
         }
 

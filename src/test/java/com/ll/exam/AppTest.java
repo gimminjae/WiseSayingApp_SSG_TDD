@@ -8,6 +8,7 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest { //아래에서 위로 진행함
+
     @Test
     public void 수정기능_예외처리_테스트() {
         String rs = AppTestRunner.run("""
@@ -104,6 +105,7 @@ public class AppTest { //아래에서 위로 진행함
         assertTrue(rs.contains("====================="));
         assertTrue(rs.contains("2 / 작자없음 / 과거를 사랑하라"));
         assertTrue(rs.contains("1 / 작자 모름 / 현재를 사랑하라"));
+
     }
     @Test
     public void 명언_여러개_등록시_명언번호가_증가하는지() {
