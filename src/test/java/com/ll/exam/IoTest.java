@@ -24,7 +24,7 @@ public class IoTest {
         Util.file.saveToFile("test_data/1.txt", "안녕");
 
         //읽기
-        String body = Util.file.readFromFile("test_data/1.txt");
+        String body = Util.file.readFromFile("test_data/1.txt", "");
 
         assertEquals("안녕", body);
 
