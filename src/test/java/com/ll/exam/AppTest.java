@@ -9,6 +9,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
     @Test
+    public void 수정기능_예외처리_테스트() {
+        String rs = AppTestRunner.run("""
+                등록
+                현재를 사랑하라
+                작자미상
+                수정
+                수정?id=
+                종료
+                """);
+        assertTrue(rs.contains("id를 입력하세요."));
+        assertTrue(rs.contains("id를 입력하세요."));
+    }
+    @Test
     public void 명언과_작가_수정시_목록에_반영이_되는지() {
         String rs = AppTestRunner.run("""
                 등록
