@@ -8,7 +8,9 @@ public class App {
     private List<WiseSaying> list;
     private Scanner sc;
     private int number;
+    private Rq rq;
     public App(Scanner sc) {
+
         this.sc = sc;
         number = 0;
         list = new LinkedList<>();
@@ -20,8 +22,9 @@ public class App {
         while(true) {
             System.out.print("명령) ");
             String cmd = sc.nextLine();
+            rq = new Rq(cmd);
 
-            switch(cmd) {
+            switch(rq.getPath()) {
                 case "등록":
                     System.out.print("명언 : ");
                     String content = sc.nextLine();
@@ -38,6 +41,11 @@ public class App {
                         WiseSaying ws = list.get(i);
                         System.out.printf("%d / %s / %s\n", ws.getId(), ws.getAuthor(), ws.getContent());
                     }
+                    break;
+                case "삭제":
+                    int idNum = rq.getIntParam("id", 0);
+                    list.remove(idNum - 1);
+                    System.out.println(idNum + "번 명언이 삭제되었습니다.");
                     break;
                 case "종료":
                     break loop;

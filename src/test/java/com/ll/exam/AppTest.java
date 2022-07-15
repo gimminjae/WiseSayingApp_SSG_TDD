@@ -5,10 +5,25 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
+    @Test
+    public void 삭제_테스트() {
+        String rs = AppTestRunner.run("""
+                등록
+                현재를 사랑하라
+                작자 모름
+                등록
+                과거를 사랑하라
+                작자없음
+                삭제?id=1
+                목록
+                종료""");
+        assertTrue(rs.contains("2 / 작자없음 / 과거를 사랑하라"));
+        assertTrue(rs.contains("1번 명언이 삭제되었습니다."));
+        assertFalse(rs.contains("1 / 작자 모름 / 현재를 사랑하라"));
+    }
     @Test
     public void 등록하고_목록_입력시_명언목록이_출력되는지() {
         String rs = AppTestRunner.run("""
