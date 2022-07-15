@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class WiseSayingTableTest {
@@ -24,5 +25,13 @@ public class WiseSayingTableTest {
         wsTable.save("자유가 아니면 죽음을 달라!", "페트릭 헨리");
 
         assertTrue(new File("test_data/wise_saying/%d.json".formatted(newId)).exists());
+    }
+    @Test
+    public void 조회() {
+        WiseSaying ws = wsTable.findById(1);
+
+        assertEquals(1, ws.getId());
+        assertEquals("나에게 불가능이란 없다.", ws.getContent());
+        assertEquals("나폴레옹", ws.getAuthor());
     }
 }
