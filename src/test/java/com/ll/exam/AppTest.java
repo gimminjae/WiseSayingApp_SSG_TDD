@@ -9,6 +9,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
     @Test
+    public void 명언과_작가_수정시_목록에_반영이_되는지() {
+        String rs = AppTestRunner.run("""
+                등록
+                현재를 사랑하라
+                작자미상
+                목록
+                수정?id=1
+                과거를 사랑하라
+                홍길동
+                목록
+                종료""");
+        assertTrue(rs.contains("1 / 작자미상 / 현재를 사랑하라"));
+        assertTrue(rs.contains("1 / 홍길동 / 과거를 사랑하라"));
+    }
+    @Test
     public void 수정명령어_입력시_기존것을_출력하고_새로_입력을_받는지() {
         String rs = AppTestRunner.run("""
                 등록

@@ -54,12 +54,28 @@ public class WiseSayingController {
     }
 
     public void update(Rq rq) {
-        System.out.println("명언(기존) : 현재를 사랑하라");
-        System.out.print("명언 : ");
-        String newContent = sc.nextLine();
-        System.out.println("작가(기존) : 작자미상");
-        System.out.print("작가 : ");
-        String newAuthor = sc.nextLine();
+        int idNum = rq.getIntParam("id", 0);
+        if(idNum == 0) {
+            System.out.println("id를 입력하세요.");
+            return;
+        }
 
+        for(int i = 0; i < list.size(); i++) {
+            WiseSaying ws = list.get(i);
+            if(ws.getId() == idNum) {
+                System.out.println("명언(기존) : " + ws.getContent());
+                System.out.print("명언 : ");
+                String newContent = sc.nextLine();
+
+                System.out.println("작가(기존) : " + ws.getAuthor());
+                System.out.print("작가 : ");
+                String newAuthor = sc.nextLine();
+
+                ws.setContent(newContent);
+                ws.setAuthor(newAuthor);
+                return;
+            }
+        }
+        System.out.println(idNum + "번 명언은 존재하지 않습니다.");
     }
 }

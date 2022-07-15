@@ -33,6 +33,7 @@ public class App {
                     break;
                 case "수정":
                     ws.update(rq);
+                    break;
                 case "종료":
                     break loop;
 
