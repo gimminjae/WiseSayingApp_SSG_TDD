@@ -44,7 +44,10 @@ public class App {
                     break;
                 case "삭제":
                     int idNum = rq.getIntParam("id", 0);
-                    list.remove(idNum - 1);
+                    for(int i = 0; i < list.size(); i++) {
+                        if(list.get(i).getId() == idNum) list.remove(i);
+                        break;
+                    }
                     System.out.println(idNum + "번 명언이 삭제되었습니다.");
                     break;
                 case "종료":
