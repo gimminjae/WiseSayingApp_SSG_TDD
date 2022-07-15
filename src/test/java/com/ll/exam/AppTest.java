@@ -8,6 +8,7 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
+
     @Test
     public void 삭제기능_모든_예외처리() {
         String rs = AppTestRunner.run("""

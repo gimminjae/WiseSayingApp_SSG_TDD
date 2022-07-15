@@ -5,15 +5,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    private List<WiseSaying> list;
-    private Scanner sc;
-    private int number;
+    private WiseSayingController ws;
     private Rq rq;
+    private Scanner sc;
     public App(Scanner sc) {
-
         this.sc = sc;
-        number = 0;
-        list = new LinkedList<>();
+        ws = new WiseSayingController(sc);
     }
     public void run() {
         System.out.println("== 명언 SSG ==");
@@ -26,36 +23,13 @@ public class App {
 
             switch(rq.getPath()) {
                 case "등록":
-                    System.out.print("명언 : ");
-                    String content = sc.nextLine();
-                    System.out.print("작가 : ");
-                    String author = sc.nextLine();
-                    ++number;
-                    list.add(new WiseSaying(number, content, author));
-                    System.out.printf("%d번 명언이 등록되었습니다.\n", number);
+                    ws.create(rq);
                     break;
                 case "목록":
-                    System.out.println("번호 / 작가 / 명언");
-                    System.out.println("=====================");
-                    for(int i = list.size() - 1; i >= 0; i--) {
-                        WiseSaying ws = list.get(i);
-                        System.out.printf("%d / %s / %s\n", ws.getId(), ws.getAuthor(), ws.getContent());
-                    }
+                    ws.read(rq);
                     break;
                 case "삭제":
-                    int idNum = rq.getIntParam("id", 0);
-                    if(idNum == 0) {
-                        System.out.println("id를 입력하세요.");
-                        continue;
-                    }
-                    for(int i = 0; i < list.size(); i++) {
-                        if(list.get(i).getId() == idNum) {
-                            list.remove(i);
-                            System.out.println(idNum + "번 명언이 삭제되었습니다.");
-                            break;
-                        }
-                        System.out.println(idNum + "번 명언은 존재하지 않습니다.");
-                    }
+                    ws.delete(rq);
                     break;
                 case "종료":
                     break loop;
