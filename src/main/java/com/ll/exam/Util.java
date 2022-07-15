@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.stream.Stream;
 
 public class Util {
     public static class file {
@@ -26,6 +31,17 @@ public class Util {
 
         public static void mkdir(String path) {
             new File(path).mkdirs();
+        }
+
+        public static void deleteDir(String path) {
+            Path rootPath = Paths.get(path);
+            try (Stream<Path> walk = Files.walk(rootPath)) {
+                walk.sorted(Comparator.reverseOrder())
+                        .map(Path::toFile)
+                        .forEach(File::delete);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         public static String readFromFile(String path, String defaultValue) {
