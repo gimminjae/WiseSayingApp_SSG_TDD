@@ -9,6 +9,25 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AppTest {
     @Test
+    public void 삭제기능_모든_예외처리() {
+        String rs = AppTestRunner.run("""
+                등록
+                현재를 사랑하라
+                작자 모름
+                등록
+                과거를 사랑하라
+                작자없음
+                삭제
+                삭제?id
+                삭제?id=1
+                삭제?id=1
+                종료""");
+        assertTrue(rs.contains("id를 입력하세요."));
+        assertTrue(rs.contains("id를 입력하세요."));
+        assertTrue(rs.contains("1번 명언이 삭제되었습니다."));
+        assertTrue(rs.contains("1번 명언은 존재하지 않습니다."));
+    }
+    @Test
     public void 삭제_테스트() {
         String rs = AppTestRunner.run("""
                 등록
