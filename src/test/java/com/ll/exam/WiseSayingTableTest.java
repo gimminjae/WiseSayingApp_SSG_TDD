@@ -48,4 +48,12 @@ public class WiseSayingTableTest {
         assertEquals("나의 죽음을 적들에게 알리지 말라.", wiseSayings.get(1).getContent());
         assertEquals("이순신", wiseSayings.get(1).getAuthor());
     }
+    @Test
+    public void 삭제_테스트() {
+        wsTable.removeById(1);
+
+        WiseSaying wiseSaying = wsTable.findById(1);
+
+        assertEquals(null, wiseSaying);
+    }
 }
