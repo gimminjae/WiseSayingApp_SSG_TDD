@@ -19,8 +19,8 @@ public class WiseSayingService {
         return wsRepository.readAll();
     }
 
-    public void delete(int idNum) {
-        wsRepository.delete(idNum);
+    public boolean delete(int idNum) {
+        return wsRepository.delete(idNum);
     }
 
     public void update(int idNum, String newContent, String newAuthor) {

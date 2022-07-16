@@ -18,13 +18,13 @@ public class IoTest {
     @Test
     public void 문자열을_파일에_저장() {
         //파일 생성
-        Util.file.mkdir("test_data");
+        Util.file.mkdir(App.getDir());
 
         //쓰기
-        Util.file.saveToFile("test_data/1.txt", "안녕");
+        Util.file.saveToFile(App.getDir() + "/1.txt", "안녕");
 
         //읽기
-        String body = Util.file.readFromFile("test_data/1.txt", "");
+        String body = Util.file.readFromFile(App.getDir() + "/1.txt", "");
 
         assertEquals("안녕", body);
 

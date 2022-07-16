@@ -1,13 +1,25 @@
 package com.ll.exam;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class AppTest { //아래에서 위로 진행함
+    @BeforeAll
+    public void beforeAll() {
+        App.mode = "test";
+    }
+    @BeforeEach
+    public void beforeEach() {
+        Util.file.deleteDir(App.getDir());
+    }
 
     @Test
     public void 수정기능_예외처리_테스트() {

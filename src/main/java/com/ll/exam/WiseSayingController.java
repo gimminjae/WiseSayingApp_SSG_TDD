@@ -38,7 +38,14 @@ public class WiseSayingController {
             System.out.println("id를 입력하세요.");
             return;
         }
+        WiseSaying ws = wsService.findById(idNum);
+
+        if(ws == null) {
+            System.out.printf("%d번 명언은 존재하지 않습니다.\n", idNum);
+            return;
+        }
         wsService.delete(idNum);
+
         System.out.println(idNum + "번 명언이 삭제되었습니다.");
     }
 

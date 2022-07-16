@@ -3,11 +3,15 @@ package com.ll.exam;
 import java.util.Scanner;
 
 public class App {
+    public static String mode = "prod";
     private WiseSayingController wc;
     private Scanner sc;
     public App(Scanner sc) {
         this.sc = sc;
         wc = new WiseSayingController(sc);
+    }
+    public static String getDir() {
+        return mode + "_data";
     }
     public void run() {
         System.out.println("== 명언 SSG ==");
