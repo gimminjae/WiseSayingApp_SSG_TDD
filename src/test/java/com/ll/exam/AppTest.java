@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AppTest { //아래에서 위로 진행함
     @BeforeAll
     public void beforeAll() {
-        App.mode = "test";
+        App.setMode("test");
     }
     @BeforeEach
     public void beforeEach() {

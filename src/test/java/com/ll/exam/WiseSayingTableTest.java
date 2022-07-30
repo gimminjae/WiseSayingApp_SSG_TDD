@@ -17,7 +17,7 @@ public class WiseSayingTableTest {
     WiseSayingTable wsTable;
     @BeforeAll
     public void beforeAll() {
-        App.mode = "test";
+        App.setMode("test");
         wsTable = new WiseSayingTable(App.getDir());
     }
     @BeforeEach

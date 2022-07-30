@@ -3,7 +3,15 @@ package com.ll.exam;
 import java.util.Scanner;
 
 public class App {
-    public static String mode = "prod";
+    public static String getMode() {
+        return mode;
+    }
+
+    public static void setMode(String mode) {
+        App.mode = mode;
+    }
+
+    private static String mode = "prod";
     private WiseSayingController wc;
     private Scanner sc;
     public App(Scanner sc) {
