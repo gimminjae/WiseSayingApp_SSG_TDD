@@ -2,6 +2,7 @@ package com.ll.exam;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WiseSayingService {
 
@@ -29,5 +30,16 @@ public class WiseSayingService {
 
     public WiseSaying findById(int idNum) {
         return wsRepository.findById(idNum);
+    }
+
+    public void dumpToJson() {
+        List<WiseSaying> wiseSayings = wsRepository.readAll();
+
+        String json = "[" + wiseSayings
+                .stream()
+                .map(wiseSaying -> wiseSaying.toJson())
+                .collect(Collectors.joining(",")) + "]";
+
+        Util.file.saveToFile("%s/data.json".formatted(App.getDir()), json);
     }
 }

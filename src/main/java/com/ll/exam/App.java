@@ -37,7 +37,9 @@ public class App {
                     break;
                 case "종료":
                     break loop;
-
+                case "빌드":
+                    wc.build(rq);
+                    break;
             }
         }
     }

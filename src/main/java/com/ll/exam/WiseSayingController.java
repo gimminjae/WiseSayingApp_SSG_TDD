@@ -72,5 +72,7 @@ public class WiseSayingController {
 
         System.out.printf("%d번 명언이 수정되었습니다.\n", idNum);
     }
-
-}
+        public void build(Rq rq) {
+            wsService.dumpToJson();
+        }
+    }
