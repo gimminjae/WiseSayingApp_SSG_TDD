@@ -75,6 +75,8 @@ public class WiseSayingTable {
         return fileNames
                 .stream()
                 .filter(fileName -> !fileName.equals("last_id.txt"))
+                .filter(fileName -> !fileName.equals("data.json")) // 영상에는 이 부분이 빠져있습니다. 꼭 추가해주세요.
+                .filter(fileName -> fileName.endsWith(".json"))
                 .map(fileName -> fileName.replace(".json", ""))
                 .mapToInt(Integer::parseInt)
                 .boxed()
@@ -86,5 +88,6 @@ public class WiseSayingTable {
         new File(path).delete();
         return true;
     }
+
 }
 

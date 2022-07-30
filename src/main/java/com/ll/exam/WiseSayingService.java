@@ -42,4 +42,5 @@ public class WiseSayingService {
 
         Util.file.saveToFile("%s/data.json".formatted(App.getDir()), json);
     }
+
 }
